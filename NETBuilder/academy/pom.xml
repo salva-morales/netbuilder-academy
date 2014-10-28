@@ -241,7 +241,7 @@
         </profile>
     </profiles>
   <modules>
-    <module>bundle</module>
-    <module>content</module>
+    <module>apps</module>
+    <module>core</module>
   </modules>
 </project>
