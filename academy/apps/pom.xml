@@ -45,11 +45,14 @@
                 </configuration>
             </plugin>
 
+			<!-- Content Package Maven Plugin -->
             <plugin>
                 <groupId>com.day.jcr.vault</groupId>
                 <artifactId>content-package-maven-plugin</artifactId>
                 <extensions>true</extensions>
                 <configuration>
+                	<verbose>true</verbose>
+                	<failOnError>true</failOnError>
                     <group>NETBuilder</group>
                     <filterSource>src/main/content/META-INF/vault/filter.xml</filterSource>
                     <embeddeds>
@@ -64,11 +67,14 @@
             </plugin>
         </plugins>
     </build>
+    
+    <!-- P R O F I L E S -->
     <profiles>
         <profile>
-            <id>autoInstallPackage</id>
+            <id>deploy-author</id>
             <build>
                 <plugins>
+                	<!-- Author -->
                     <plugin>
                         <groupId>com.day.jcr.vault</groupId>
                         <artifactId>content-package-maven-plugin</artifactId>
