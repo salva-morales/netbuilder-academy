@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!-- Copyright 2013 EE -->
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd"
+    version="2.0">
+
+    <description>A tag library for Netbuilder Academy tag libraries</description>
+    <tlib-version>1.0</tlib-version>
+    <short-name>nb-academy</short-name>
+    <uri>http://www.nb.com/taglibs/nb-academy/1.0</uri>
+
+    <!-- =================================================================== -->
+    <tag>
+        <description>Gets a list of empty rooms</description>
+        <name>listEmptyRooms</name>
+        <tag-class>uk.co.ee.aem.newdevices.taglibs.tags.ListEmptyRoomsTag</tag-class>
+        <body-content>empty</body-content>
+    </tag>
+    <!-- =================================================================== -->
+
+</taglib>

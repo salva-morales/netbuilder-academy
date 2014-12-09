@@ -21,7 +21,7 @@
     <dependencies>
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>academy-bundle</artifactId>
+            <artifactId>academy.core</artifactId>
             <version>${project.version}</version>
         </dependency>
     </dependencies>
