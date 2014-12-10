@@ -25,6 +25,13 @@
                         minValue="{Long}18"
                         name="./age"
                         xtype="numberfield"/>
+                    <availability
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Check to confirm GC's availability"
+                        fieldLabel="Availability"
+                        name="./availability"
+                        type="checkbox"
+                        xtype="selection"/>
                 </items>
             </properties>
         </items>

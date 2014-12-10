@@ -10,4 +10,7 @@
 %>
 <body>
     <cq:include script="main.jsp" />
+
+    <cq:include script="clientlibs.jsp" />
+
 </body>
