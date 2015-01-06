@@ -1,5 +1,7 @@
 package uk.co.netbuilder.academy.taglibs;
 
+import java.util.List;
+
 import javax.servlet.jsp.tagext.TagSupport;
 
 import org.apache.sling.api.SlingHttpServletRequest;
@@ -10,7 +12,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import uk.co.netbuilder.academy.models.people.GC;
+import uk.co.netbuilder.academy.services.GCService;
 
+import com.day.cq.wcm.api.Page;
+import com.day.cq.wcm.api.PageManager;
+
+// Our class extends TagSupport
 public class ListAvailableGC extends TagSupport{
 
 	/**
@@ -20,15 +27,43 @@ public class ListAvailableGC extends TagSupport{
 
 	private static final Logger LOG = LoggerFactory.getLogger(ListAvailableGC.class);
 
+	private static final String GCFINDERPAGE_PATH = "/content/nb-academy/en_gb/staff/gc";
+
 	public int doStartTag() {
 
-		// retrieve the service using the helper
+		// We retrieve the request by using the Object TagUtil which is available thanks to TagSupport Class
 		SlingHttpServletRequest request = TagUtil.getRequest(pageContext);
+
+		// retrieve the GCService using the helper
 		SlingBindings bindings = (SlingBindings) request.getAttribute(SlingBindings.class.getName());
 		SlingScriptHelper helper = bindings.getSling();
-		//FilterService availableFiltersService = helper.getService(FilterService.class);
+		GCService gcService = helper.getService(GCService.class);
 
-		GC gc = new GC();
+		// Always some guard to check if the object is null
+		if (gcService != null) {
+			
+			PageManager pageManager = request.getResourceResolver().adaptTo(PageManager.class);
+			
+			if (pageManager != null) {
+				
+				Page gcFinderPage = pageManager.getPage(GCFINDERPAGE_PATH);
+				
+				if (gcFinderPage != null) {
+					
+					// Set the list of available GC
+					List<GC> availableGCs = gcService.listAllAvailableGC(gcFinderPage);
+					// Set this list into the pageContext to be used within the JSP
+					pageContext.setAttribute("availableGCs", availableGCs);
+					
+				} else {
+					LOG.error("gcFinderPage is null!");
+				}
+			} else {
+				LOG.error("PageManager is null");
+			}
+		} else {
+			LOG.error("gcServicegcService is null");
+		}
 
 		return SKIP_BODY;
 	}

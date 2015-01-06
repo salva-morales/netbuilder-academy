@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:vlt="http://www.day.com/jcr/vault/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:created="{Date}2014-12-19T17:44:39.145Z"
+    jcr:createdBy="admin"
+    jcr:description="Maven Multimodule project for NETBuilder AEM Academy."
+    jcr:lastModified="{Date}2014-12-19T17:44:39.145Z"
+    jcr:lastModifiedBy="admin"
+    jcr:primaryType="vlt:PackageDefinition"
+    buildCount="2"
+    builtWith="Adobe Experience Manager-5.6.1.20130606"
+    group="NETBuilder"
+    lastUnwrapped="{Date}2014-12-19T17:44:39.145Z"
+    lastUnwrappedBy="admin"
+    lastWrapped="{Date}2014-12-19T17:44:39.145Z"
+    lastWrappedBy="admin"
+    name="academy.apps"
+    version="0.0.1-SNAPSHOT">
+    <thumbnail.png/>
+    <filter jcr:primaryType="nt:unstructured">
+        <f0
+            jcr:primaryType="nt:unstructured"
+            mode="replace"
+            root="/apps/nb-academy"
+            rules="[]"/>
+        <f1
+            jcr:primaryType="nt:unstructured"
+            mode="replace"
+            root="/etc/designs/nb-design"
+            rules="[]"/>
+    </filter>
+    <thumbnail jcr:primaryType="nt:unstructured">
+        <file/>
+    </thumbnail>
+</jcr:root>

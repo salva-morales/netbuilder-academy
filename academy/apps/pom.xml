@@ -14,27 +14,46 @@
     <!-- P R O J E C T D E S C R I P T I O N -->
     <!-- ====================================================================== -->
 
-    <artifactId>academy.apps</artifactId>
+    <artifactId>${project.parent.artifactId}.apps</artifactId>
     <packaging>content-package</packaging>
-    <name>NETBuilder AEM Academy Package</name>
+    <name>${granite.project.human.name} : Apps</name>
 
     <dependencies>
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>academy.core</artifactId>
+            <artifactId>${project.parent.artifactId}.core</artifactId>
             <version>${project.version}</version>
         </dependency>
     </dependencies>
     <build>
-        <resources>
-            <resource>
-                <directory>src/main/content/jcr_root</directory>
-                <excludes>
-                    <exclude>**/.vlt</exclude>
-                    <exclude>**/.vltignore</exclude>
-                </excludes>
-            </resource>
-        </resources>
+		<resources>
+			<resource>
+				<directory>${basedir}/src/main/content/jcr_root</directory>
+				<excludes>
+					<exclude>**/*.vlt</exclude>
+					<exclude>**/*.svn/**</exclude>
+					<exclude>**/*.git/**</exclude>
+					<exclude>**/*.gitignore</exclude>
+					<exclude>**/*.DS_Store</exclude>
+					<exclude>**/.classpath</exclude>
+					<exclude>**/.project</exclude>
+				</excludes>
+				<targetPath>.</targetPath>
+			</resource>
+			<resource>
+				<directory>${basedir}/src/main/content/META-INF</directory>
+				<excludes>
+					<exclude>**/*.vlt</exclude>
+					<exclude>**/*.svn/**</exclude>
+					<exclude>**/*.git/**</exclude>
+					<exclude>**/*.gitignore</exclude>
+					<exclude>**/*.DS_Store</exclude>
+					<exclude>**/.classpath</exclude>
+					<exclude>**/.project</exclude>
+				</excludes>
+				<targetPath>../vault-work/META-INF</targetPath>
+			</resource>
+		</resources>
 
         <plugins>
             <plugin>
@@ -53,13 +72,13 @@
                 <configuration>
                 	<verbose>true</verbose>
                 	<failOnError>true</failOnError>
-                    <group>NETBuilder</group>
+                    <group>${project.groupId}</group>
                     <filterSource>src/main/content/META-INF/vault/filter.xml</filterSource>
                     <embeddeds>
                         <embedded>
                             <groupId>${project.groupId}</groupId>
-                            <artifactId>academy-bundle</artifactId>
-                            <target>/apps/netbuilder/install</target>
+                            <artifactId>${project.parent.artifactId}.core</artifactId>
+                            <target>${granite.project.jcr.folder}</target>
                         </embedded>
                     </embeddeds>
                     <targetURL>http://${crx.host}:${crx.port}/crx/packmgr/service.jsp</targetURL>

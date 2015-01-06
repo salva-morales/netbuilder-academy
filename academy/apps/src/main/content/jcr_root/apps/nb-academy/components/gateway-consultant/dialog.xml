@@ -8,16 +8,16 @@
         jcr:primaryType="cq:Widget"
         xtype="tabpanel">
         <items jcr:primaryType="cq:WidgetCollection">
-            <properties
+            <gc-info
                 jcr:primaryType="cq:Panel"
                 title="Main information">
                 <items jcr:primaryType="cq:WidgetCollection">
-                    <heading
+                    <name
                         jcr:primaryType="cq:Widget"
                         fieldLabel="Name"
                         name="./name"
                         xtype="textfield"/>
-                    <rowsToShow
+                    <age
                         jcr:primaryType="cq:Widget"
                         allowDecimals="{Boolean}false"
                         allowNegative="{Boolean}false"
@@ -33,7 +33,7 @@
                         type="checkbox"
                         xtype="selection"/>
                 </items>
-            </properties>
+            </gc-info>
         </items>
     </items>
 </jcr:root>

@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:primaryType="cq:Dialog"
+    title="Edit Page"
+    xtype="dialog">
+    <items jcr:primaryType="cq:WidgetCollection">
+        <tabs jcr:primaryType="cq:TabPanel">
+            <items jcr:primaryType="cq:WidgetCollection">
+                <gc-info
+                    jcr:primaryType="cq:Panel"
+                    title="Main information">
+                    <items jcr:primaryType="cq:WidgetCollection">
+                        <name
+                            jcr:primaryType="cq:Widget"
+                            fieldLabel="Name"
+                            name="./name"
+                            xtype="textfield"/>
+                        <age
+                            jcr:primaryType="cq:Widget"
+                            allowDecimals="{Boolean}false"
+                            allowNegative="{Boolean}false"
+                            fieldLabel="Age"
+                            minValue="{Long}18"
+                            name="./age"
+                            xtype="numberfield"/>
+                        <availability
+                            jcr:primaryType="cq:Widget"
+                            fieldDescription="Check to confirm GC's availability"
+                            fieldLabel="Availability"
+                            name="./availability"
+                            type="checkbox"
+                            xtype="selection"/>
+                        <skills
+                            jcr:primaryType="cq:Widget"
+                            fieldDescription="List of skills (I.E.: java, C++, HTML, JavaScript)"
+                            fieldLabel="Skills"
+                            name="./skill"
+                            xtype="textfield"/>
+                    </items>
+                </gc-info>
+                <tab_basic
+                    jcr:primaryType="cq:Panel"
+                    title="Basic">
+                    <items jcr:primaryType="cq:WidgetCollection">
+                        <basic
+                            jcr:primaryType="cq:Widget"
+                            collapsed="{Boolean}false"
+                            collapsible="{Boolean}false"
+                            xtype="dialogfieldset">
+                            <items jcr:primaryType="cq:WidgetCollection">
+                                <title
+                                    jcr:primaryType="cq:Widget"
+                                    fieldDescription="The title displayed at the top of the page."
+                                    fieldLabel="Title"
+                                    name="./jcr:title"
+                                    xtype="textfield"/>
+                                <tags
+                                    jcr:primaryType="cq:Widget"
+                                    cls="cq-propsdialog-tags"
+                                    fieldLabel="Tags/Keywords"
+                                    name="./cq:tags"
+                                    xtype="tags"/>
+                                <hideinnav
+                                    jcr:primaryType="cq:Widget"
+                                    fieldLabel="Hide in Navigation"
+                                    inputValue="true"
+                                    name="./hideInNav"
+                                    type="checkbox"
+                                    xtype="selection"/>
+                                <hide-from-search-engines
+                                    jcr:primaryType="cq:Widget"
+                                    fieldLabel="Hide from search engines"
+                                    name="./hideFromSearchEngines"
+                                    type="checkbox"
+                                    xtype="selection"/>
+                            </items>
+                        </basic>
+                        <more_titles
+                            jcr:primaryType="cq:Widget"
+                            collapsed="{Boolean}true"
+                            collapsible="{Boolean}true"
+                            title="More Titles and Description"
+                            xtype="dialogfieldset">
+                            <items jcr:primaryType="cq:WidgetCollection">
+                                <pagetitle
+                                    jcr:primaryType="cq:Widget"
+                                    fieldDescription="The title displayed on the browser's page tab."
+                                    fieldLabel="Browser Title"
+                                    name="./pageTitle"
+                                    xtype="textfield"/>
+                                <navtitle
+                                    jcr:primaryType="cq:Widget"
+                                    fieldDescription="The title displayed in the breadcrumb and navigation tabs."
+                                    fieldLabel="Navigation Title"
+                                    name="./navTitle"
+                                    xtype="textfield"/>
+                                <subtitle
+                                    jcr:primaryType="cq:Widget"
+                                    fieldLabel="Subtitle"
+                                    name="./subtitle"
+                                    xtype="textfield"/>
+                                <description
+                                    jcr:primaryType="cq:Widget"
+                                    fieldLabel="Description"
+                                    name="./jcr:description"
+                                    xtype="textarea"/>
+                            </items>
+                        </more_titles>
+                        <urls
+                            jcr:primaryType="cq:Widget"
+                            collapsed="{Boolean}true"
+                            collapsible="{Boolean}true"
+                            title="Alternate URLs"
+                            xtype="dialogfieldset">
+                            <items jcr:primaryType="cq:WidgetCollection">
+                                <vanity
+                                    jcr:primaryType="cq:Widget"
+                                    path="/libs/foundation/components/page/tab_basic/items/vanity/items.infinity.json"
+                                    xtype="cqinclude"/>
+                                <canonicalURL
+                                    jcr:primaryType="cq:Widget"
+                                    fieldDescription="Select a page to set the canonical URL to, by default when blank, it automatically references itself"
+                                    fieldLabel="Canonical URL"
+                                    name="./canonicalURL"
+                                    xtype="apps.ee-web.widgets.pathfield"/>
+                            </items>
+                        </urls>
+                        <onofftime
+                            jcr:primaryType="cq:Widget"
+                            path="/libs/foundation/components/page/tab_basic/items/onofftime.infinity.json"
+                            xtype="cqinclude"/>
+                        <resType
+                            jcr:primaryType="cq:Widget"
+                            ignoreData="{Boolean}true"
+                            name="./masonryImage/sling:resourceType"
+                            value="foundation/components/image"
+                            xtype="hidden"/>
+                        <more
+                            jcr:primaryType="cq:Widget"
+                            collapsed="{Boolean}true"
+                            collapsible="{Boolean}true"
+                            title="More options"
+                            xtype="dialogfieldset">
+                            <items jcr:primaryType="cq:WidgetCollection">
+                                <hide-breadcrumb
+                                    jcr:primaryType="cq:Widget"
+                                    fieldLabel="Hide Breadcrumb"
+                                    name="./hideBreadcrumb"
+                                    type="checkbox"
+                                    xtype="selection"/>
+                                <ssl
+                                    jcr:primaryType="cq:Widget"
+                                    disabled="{Boolean}true"
+                                    fieldDescription="This page will be served as a secure page"
+                                    fieldLabel="SSL page"
+                                    name="./ssl"
+                                    readOnly="{Boolean}true"
+                                    type="checkbox"
+                                    xtype="selection"/>
+                            </items>
+                        </more>
+                    </items>
+                </tab_basic>
+                <advanced
+                    jcr:primaryType="cq:Widget"
+                    path="/libs/foundation/components/page/tab_advanced.infinity.json"
+                    xtype="cqinclude"/>
+                <image
+                    jcr:primaryType="cq:Widget"
+                    path="/libs/foundation/components/page/tab_image.infinity.json"
+                    xtype="cqinclude"/>
+                <cloudservices
+                    jcr:primaryType="cq:Widget"
+                    path="/libs/foundation/components/page/tab_cloudservices.infinity.json"
+                    xtype="cqinclude"/>
+                <blueprint
+                    jcr:primaryType="cq:Widget"
+                    path="/libs/foundation/components/page/tab_blueprint.infinity.json"
+                    xtype="cqinclude"/>
+                <livecopy
+                    jcr:primaryType="cq:Widget"
+                    path="/libs/foundation/components/page/tab_livecopy.infinity.json"
+                    xtype="cqinclude"/>
+            </items>
+        </tabs>
+    </items>
+</jcr:root>

@@ -11,7 +11,7 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
-	<name>NETBuilder AEM Academy - Reactor Project</name>
+	<name>${granite.project.human.name} : Reactor Project</name>
 	<description>Maven Multimodule project for NETBuilder AEM Academy.</description>
 
 	<prerequisites>
@@ -34,12 +34,19 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
 		<!-- V E R S I O N - M A N A G E M E N T -->
+		<com.day.commons.day-commons-text.version>1.1.8</com.day.commons.day-commons-text.version>
+		<com.day.cq.version>5.6.6</com.day.cq.version>
+		<granite.aem.version>5.6.1</granite.aem.version>
 		<javax.jcr.version>2.0</javax.jcr.version>
 		<javax.servlet.servlet-api.version>2.5</javax.servlet.servlet-api.version>
 		<javax.servlet.jsp-api.version>2.1</javax.servlet.jsp-api.version>
 		<org.apache.sling.scripting.jsp.version>2.0.28</org.apache.sling.scripting.jsp.version>
-	</properties>
 
+		<!-- P R O J E C T - M A N A G E M E N T -->
+		<granite.project.name>nb-academy</granite.project.name>
+		<granite.project.human.name>NETBuilder Academy</granite.project.human.name>
+		<granite.project.jcr.folder>/apps/${granite.project.name}/install</granite.project.jcr.folder>
+	</properties>
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
@@ -60,6 +67,24 @@
 				<version>1.6.0</version>
 				<scope>provided</scope>
 			</dependency>
+			
+			<!-- Apache HTTPComponents -->
+            <dependency>
+                <groupId>org.apache.httpcomponents</groupId>
+                <artifactId>httpclient</artifactId>
+                <version>4.2.6</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.httpcomponents</groupId>
+                <artifactId>httpcore</artifactId>
+                <version>4.2.5</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.httpcomponents</groupId>
+                <artifactId>httpmime</artifactId>
+                <version>4.3.2</version>
+            </dependency>
+            
 			<dependency>
 				<groupId>biz.aQute</groupId>
 				<artifactId>bndlib</artifactId>
@@ -69,8 +94,9 @@
 			<dependency>
 				<groupId>org.slf4j</groupId>
 				<artifactId>slf4j-api</artifactId>
-				<version>1.5.10</version>
+				<version>1.6.4</version>
 				<scope>provided</scope>
+
 			</dependency>
 			<dependency>
 				<groupId>org.apache.sling</groupId>
@@ -93,13 +119,19 @@
 			</dependency>
 
 			<dependency>
+				<groupId>org.apache.sling</groupId>
+				<artifactId>org.apache.sling.commons.json</artifactId>
+				<version>2.0.6</version>
+			</dependency>
+
+			<dependency>
 				<groupId>junit</groupId>
 				<artifactId>junit</artifactId>
 				<version>4.8.1</version>
 				<scope>test</scope>
 			</dependency>
 
-			<!-- M O C K I T O   F R A M E W O R K -->
+			<!-- M O C K I T O F R A M E W O R K -->
 			<dependency>
 				<groupId>org.mockito</groupId>
 				<artifactId>mockito-core</artifactId>
@@ -116,6 +148,13 @@
 				<groupId>org.powermock</groupId>
 				<artifactId>powermock-module-junit4</artifactId>
 				<version>1.5.3</version>
+				<scope>test</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-simple</artifactId>
+				<version>1.7.5</version>
 				<scope>test</scope>
 			</dependency>
 
@@ -136,6 +175,57 @@
 				<groupId>javax.servlet.jsp</groupId>
 				<artifactId>jsp-api</artifactId>
 				<version>${javax.servlet.jsp-api.version}</version>
+				<scope>provided</scope>
+			</dependency>
+
+			<!-- Day CQ Dependencies -->
+			<dependency>
+				<groupId>com.day.cq</groupId>
+				<artifactId>cq-quickstart-product-dependencies</artifactId>
+				<version>${granite.aem.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<dependency>
+				<groupId>com.day.cq.wcm</groupId>
+				<artifactId>cq-wcm-foundation</artifactId>
+				<version>${com.day.cq.version}</version>
+				<scope>provided</scope>
+			</dependency>
+			<dependency>
+				<groupId>com.day.commons</groupId>
+				<artifactId>day-commons-text</artifactId>
+				<version>${com.day.commons.day-commons-text.version}</version>
+				<scope>provided</scope>
+			</dependency>
+			<dependency>
+				<groupId>com.day.cq.wcm</groupId>
+				<artifactId>cq-wcm-taglib</artifactId>
+				<version>${com.day.cq.version}</version>
+				<scope>provided</scope>
+			</dependency>
+			<dependency>
+				<groupId>com.day.cq</groupId>
+				<artifactId>cq-tagging</artifactId>
+				<version>5.6.4</version>
+				<scope>provided</scope>
+			</dependency>
+			<dependency>
+				<groupId>com.day.cq.wcm</groupId>
+				<artifactId>cq-wcm-commons</artifactId>
+				<version>${com.day.cq.version}</version>
+				<scope>provided</scope>
+			</dependency>
+			<dependency>
+				<groupId>com.day.cq</groupId>
+				<artifactId>cq-search</artifactId>
+				<version>5.6.4</version>
+				<scope>provided</scope>
+			</dependency>
+			<dependency>
+				<groupId>com.day.cq.wcm</groupId>
+				<artifactId>cq-wcm-commons</artifactId>
+				<version>${com.day.cq.version}</version>
 				<scope>provided</scope>
 			</dependency>
 		</dependencies>

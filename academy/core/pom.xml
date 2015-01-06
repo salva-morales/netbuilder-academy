@@ -15,9 +15,9 @@
 	<!-- P R O J E C T D E S C R I P T I O N -->
 	<!-- ====================================================================== -->
 
-	<artifactId>academy.core</artifactId>
+	<artifactId>${project.parent.artifactId}.core</artifactId>
 	<packaging>bundle</packaging>
-	<name>NETBuilder AEM Academy Bundle</name>
+	<name>${granite.project.human.name} : Bundle</name>
 
 	<dependencies>
 		<dependency>
@@ -37,15 +37,11 @@
 			<artifactId>bndlib</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-api</artifactId>
-		</dependency>
-		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 		</dependency>
 
-		<!-- M O C K I T O    F R A M E W O R K -->
+		<!-- M O C K I T O F R A M E W O R K -->
 		<dependency>
 			<groupId>org.mockito</groupId>
 			<artifactId>mockito-core</artifactId>
@@ -57,6 +53,14 @@
 		<dependency>
 			<groupId>org.powermock</groupId>
 			<artifactId>powermock-module-junit4</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-simple</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
 		</dependency>
 
 		<dependency>
@@ -73,6 +77,25 @@
 			<artifactId>org.apache.sling.scripting.jsp</artifactId>
 		</dependency>
 
+		<dependency>
+			<groupId>org.apache.sling</groupId>
+			<artifactId>org.apache.sling.commons.json</artifactId>
+		</dependency>
+		
+		<!-- Apache HTTPComponents -->
+            <dependency>
+                <groupId>org.apache.httpcomponents</groupId>
+                <artifactId>httpclient</artifactId>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.httpcomponents</groupId>
+                <artifactId>httpcore</artifactId>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.httpcomponents</groupId>
+                <artifactId>httpmime</artifactId>
+            </dependency>
+
 		<!-- Java Extended: Web -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
@@ -85,6 +108,30 @@
 		<dependency>
 			<groupId>javax.servlet.jsp</groupId>
 			<artifactId>jsp-api</artifactId>
+		</dependency>
+
+		<!-- Day CQ -->
+		<dependency>
+			<groupId>com.day.cq.wcm</groupId>
+			<artifactId>cq-wcm-api</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>com.day.cq</groupId>
+			<artifactId>cq-commons</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.day.cq</groupId>
+			<artifactId>cq-tagging</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>com.day.cq</groupId>
+			<artifactId>cq-search</artifactId>
+			<scope>provided</scope>
 		</dependency>
 	</dependencies>
 
@@ -111,7 +158,7 @@
 				<extensions>true</extensions>
 				<configuration>
 					<instructions>
-						<Bundle-SymbolicName>uk.co.netbuilder.academy.core</Bundle-SymbolicName>
+						<Bundle-SymbolicName>${project.parent.groupId}.${project.artifactId}</Bundle-SymbolicName>
 					</instructions>
 				</configuration>
 			</plugin>
@@ -119,7 +166,7 @@
 				<groupId>org.apache.sling</groupId>
 				<artifactId>maven-sling-plugin</artifactId>
 				<configuration>
-					<slingUrl>http://${crx.host}:${crx.port}/apps/netbuilder/install</slingUrl>
+					<slingUrl>http://${crx.host}:${crx.port}${granite.project.jcr.folder}</slingUrl>
 					<usePut>true</usePut>
 				</configuration>
 			</plugin>

@@ -4,14 +4,14 @@ import java.util.List;
 
 import uk.co.netbuilder.academy.models.people.GC;
 
+import com.day.cq.wcm.api.Page;
+
 public interface GCService {
 	
-	List<GC> listAllGC ();
+	List<GC> listAllGC (Page gcFinderPage);
 	
-	//List<GC> listAllAvailableGC (List<GC> allGCs);
+	List<GC> listAllAvailableGC (Page gcFinderPage);
 	
-	List<GC> listAllGCWithSkill (String skill);
+	List<GC> listAllGCWithSkill (List<GC> allAvailableGCs, String skill);
 	
-	
-
 }
