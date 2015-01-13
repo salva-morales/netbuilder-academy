@@ -1,6 +1,7 @@
 package uk.co.netbuilder.academy.services;
 
 import java.util.List;
+import java.util.Map;
 
 import uk.co.netbuilder.academy.models.people.GC;
 
@@ -12,6 +13,8 @@ public interface GCService {
 	
 	List<GC> listAllAvailableGC (Page gcFinderPage);
 	
-	List<GC> listAllGCWithSkill (List<GC> allAvailableGCs, String skill);
+	List<GC> listAllGCWithSkill (List<GC> allAvailableGCs, String[] skills);
+	
+	void createGC (Map<String, String[]> parameters, String fullGCPath);
 	
 }

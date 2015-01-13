@@ -22,7 +22,7 @@
 
   ==============================================================================
 
---%><%@include file="/libs/foundation/global.jsp" %><%
+--%><%@include file="/apps/nb-academy/global.jsp" %><%
 %><%@ page import="com.day.cq.commons.Doctype" %><%
     String xs = Doctype.isXHTML(request) ? "/" : "";
     String favIcon = currentDesign.getPath() + "/favicon.ico";

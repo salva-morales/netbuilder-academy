@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <workspaceFilter version="1.0">
     <filter root="/apps/nb-academy"/>
-    <filter root="/etc/designs/nb-design"/>
+    <!-- 
+	    <filter root="/etc/designs/nb-design"/>
+	    <filter root="/etc/netbuilder"/>
+	    <filter root="/content/nb-academy"/>
+	    <filter root="/content/dam/nb-academy"/>
+     -->
 </workspaceFilter>

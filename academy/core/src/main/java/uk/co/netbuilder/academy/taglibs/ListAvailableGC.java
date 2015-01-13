@@ -13,6 +13,7 @@ import org.slf4j.LoggerFactory;
 
 import uk.co.netbuilder.academy.models.people.GC;
 import uk.co.netbuilder.academy.services.GCService;
+import uk.co.netbuilder.academy.utils.Utils;
 
 import com.day.cq.wcm.api.Page;
 import com.day.cq.wcm.api.PageManager;
@@ -26,8 +27,6 @@ public class ListAvailableGC extends TagSupport{
 	private static final long serialVersionUID = 1L;
 
 	private static final Logger LOG = LoggerFactory.getLogger(ListAvailableGC.class);
-
-	private static final String GCFINDERPAGE_PATH = "/content/nb-academy/en_gb/staff/gc";
 
 	public int doStartTag() {
 
@@ -46,7 +45,7 @@ public class ListAvailableGC extends TagSupport{
 			
 			if (pageManager != null) {
 				
-				Page gcFinderPage = pageManager.getPage(GCFINDERPAGE_PATH);
+				Page gcFinderPage = pageManager.getPage(Utils.GCFINDERPAGE_PATH);
 				
 				if (gcFinderPage != null) {
 					

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:designPath="/etc/designs/nb-academy"
+        cq:lastModified="{Date}2015-01-06T20:02:55.010Z"
+        cq:lastModifiedBy="admin"
+        cq:template="/apps/nb-academy/templates/gc-creator"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="GC Creator"
+        sling:resourceType="nb-academy/components/pages/gc-creator-page">
+        <main-par
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="foundation/components/parsys">
+            <gc_creator
+                jcr:created="{Date}2015-01-06T19:01:11.119Z"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2015-01-06T19:55:22.855Z"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="nb-academy/components/gc-creator"/>
+        </main-par>
+    </jcr:content>
+</jcr:root>

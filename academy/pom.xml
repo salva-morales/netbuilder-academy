@@ -41,6 +41,8 @@
 		<javax.servlet.servlet-api.version>2.5</javax.servlet.servlet-api.version>
 		<javax.servlet.jsp-api.version>2.1</javax.servlet.jsp-api.version>
 		<org.apache.sling.scripting.jsp.version>2.0.28</org.apache.sling.scripting.jsp.version>
+		<org.apache.sling.settings.version>1.2.2</org.apache.sling.settings.version>
+		<org.apache.sling.jcr.resource.version>2.2.9-R1483758</org.apache.sling.jcr.resource.version>
 
 		<!-- P R O J E C T - M A N A G E M E N T -->
 		<granite.project.name>nb-academy</granite.project.name>
@@ -67,24 +69,24 @@
 				<version>1.6.0</version>
 				<scope>provided</scope>
 			</dependency>
-			
+
 			<!-- Apache HTTPComponents -->
-            <dependency>
-                <groupId>org.apache.httpcomponents</groupId>
-                <artifactId>httpclient</artifactId>
-                <version>4.2.6</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.httpcomponents</groupId>
-                <artifactId>httpcore</artifactId>
-                <version>4.2.5</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.httpcomponents</groupId>
-                <artifactId>httpmime</artifactId>
-                <version>4.3.2</version>
-            </dependency>
-            
+			<dependency>
+				<groupId>org.apache.httpcomponents</groupId>
+				<artifactId>httpclient</artifactId>
+				<version>4.2.6</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.httpcomponents</groupId>
+				<artifactId>httpcore</artifactId>
+				<version>4.2.5</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.httpcomponents</groupId>
+				<artifactId>httpmime</artifactId>
+				<version>4.3.2</version>
+			</dependency>
+
 			<dependency>
 				<groupId>biz.aQute</groupId>
 				<artifactId>bndlib</artifactId>
@@ -122,6 +124,20 @@
 				<groupId>org.apache.sling</groupId>
 				<artifactId>org.apache.sling.commons.json</artifactId>
 				<version>2.0.6</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.apache.sling</groupId>
+				<artifactId>org.apache.sling.settings</artifactId>
+				<version>${org.apache.sling.settings.version}</version>
+				<scope>provided</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>org.apache.sling</groupId>
+				<artifactId>org.apache.sling.jcr.resource</artifactId>
+				<version>${org.apache.sling.jcr.resource.version}</version>
+				<scope>provided</scope>
 			</dependency>
 
 			<dependency>
@@ -228,6 +244,17 @@
 				<version>${com.day.cq.version}</version>
 				<scope>provided</scope>
 			</dependency>
+
+
+		<!-- V A L I D A T I O N - O W A S P -->
+
+<!-- TODO: WHY THE DEPENDENCY IS NOT RESOLVED?
+			<dependency>
+				<groupId>org.owasp.esapi</groupId>
+				<artifactId>esapi</artifactId>
+				<version>2.1.0</version>
+			</dependency>
+  -->
 		</dependencies>
 	</dependencyManagement>
 

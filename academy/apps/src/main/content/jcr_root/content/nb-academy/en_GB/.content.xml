@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:designPath="/etc/designs/nb-design"
+        cq:lastModified="{Date}2015-01-09T12:56:08.430Z"
+        cq:lastModifiedBy="admin"
+        cq:template="/apps/nb-academy/templates/nb-project"
+        jcr:isCheckedOut="{Boolean}true"
+        jcr:mixinTypes="[mix:versionable]"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Homepage"
+        jcr:uuid="865566ab-f724-4239-80f1-398b2f13c9e6"
+        sling:resourceType="nb-academy/components/pages/base-page"/>
+    <staff/>
+</jcr:root>

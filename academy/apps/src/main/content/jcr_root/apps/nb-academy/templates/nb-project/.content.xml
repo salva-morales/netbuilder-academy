@@ -6,6 +6,7 @@
     allowedPaths="[/content(/.*)?]"
     ranking="{Long}101">
     <jcr:content
+        cq:designPath="/etc/designs/nb-design"
         jcr:primaryType="cq:PageContent"
         sling:resourceType="nb-academy/components/pages/base-page"/>
 </jcr:root>

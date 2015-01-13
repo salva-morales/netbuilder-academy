@@ -2,6 +2,8 @@ package uk.co.netbuilder.academy.models.people;
 
 import org.apache.sling.api.resource.ValueMap;
 
+import uk.co.netbuilder.academy.utils.Utils;
+
 import com.day.cq.wcm.api.Page;
 
 public class Person {
@@ -14,14 +16,14 @@ public class Person {
 		ValueMap properties = page.getProperties();
 		this.name = this.nationality = "unknown";
 		this.age = 0;
-		if (properties.containsKey("name")) {
-			this.name = properties.get("name").toString();
+		if (properties.containsKey(Utils.NAME_PROPERTY)) {
+			this.name = properties.get(Utils.NAME_PROPERTY).toString();
 		}
-		if (properties.containsKey("age")) {
-			this.age = Integer.parseInt(properties.get("age").toString());
+		if (properties.containsKey(Utils.AGE_PROPERTY)) {
+			this.age = Integer.parseInt(properties.get(Utils.AGE_PROPERTY).toString());
 		}
-		if (properties.containsKey("nationality")) {
-			this.nationality = properties.get("nationality").toString();
+		if (properties.containsKey(Utils.NATIONALITY_PROPERTY)) {
+			this.nationality = properties.get(Utils.NATIONALITY_PROPERTY).toString();
 		}
 	}
 	

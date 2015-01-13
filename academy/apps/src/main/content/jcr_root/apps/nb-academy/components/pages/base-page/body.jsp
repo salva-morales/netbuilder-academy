@@ -5,7 +5,7 @@
   This is the Base Page for the NETbuilder project
 
 --%><%
-%><%@include file="/libs/foundation/global.jsp"%><%
+%><%@include file="/apps/nb-academy/global.jsp"%><%
 %><%@page session="false" %><%
 %>
 <body>

@@ -2,11 +2,12 @@
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
     jcr:primaryType="cq:Page">
     <jcr:content
-        cq:lastModified="{Date}2014-12-10T13:52:35.568Z"
+        cq:designPath="/etc/designs/nb-design"
+        cq:lastModified="{Date}2015-01-09T12:57:26.672Z"
         cq:lastModifiedBy="admin"
         cq:template="/apps/nb-academy/templates/nb-project"
         jcr:primaryType="cq:PageContent"
         jcr:title="Staff"
         sling:resourceType="nb-academy/components/pages/base-page"/>
-    <gc/>
+    <gc-finder/>
 </jcr:root>

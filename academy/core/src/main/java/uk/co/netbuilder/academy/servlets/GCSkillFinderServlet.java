@@ -24,7 +24,7 @@ import com.day.cq.wcm.api.PageManager;
 
 import uk.co.netbuilder.academy.models.people.GC;
 import uk.co.netbuilder.academy.services.GCService;
-
+import uk.co.netbuilder.academy.utils.Utils;
 
 
 @SlingServlet(paths = "/bin/findGCs", methods = "GET", extensions="json")
@@ -54,13 +54,14 @@ public class GCSkillFinderServlet extends SlingAllMethodsServlet{
 	@Reference
 	private GCService gcService;
 
-	private static final String GCFINDERPAGE_PATH = "/content/nb-academy/en_gb/staff/gc";
-
 	@Override
 	public void doGet (SlingHttpServletRequest request, SlingHttpServletResponse response) throws IOException{
 
 		@SuppressWarnings("unchecked")
 		Map<String, String[]> parameters = request.getParameterMap();
+		
+		//TODO: Research why the OWASP dependency can not be resolved.
+		//Utils.assertValidRequestParam("Checking params from GCSkillFinderServlet", request, parameters.keySet());
 
 		PageManager pageManager = request.getResourceResolver().adaptTo(PageManager.class);
 		
@@ -68,16 +69,13 @@ public class GCSkillFinderServlet extends SlingAllMethodsServlet{
 		
 		if (pageManager != null) {
 
-			Page gcFinderPage = pageManager.getPage(GCFINDERPAGE_PATH);
-
+			Page gcFinderPage = pageManager.getPage(Utils.GCFINDERPAGE_PATH);
 			if (gcFinderPage != null) {
-
 				List<GC> availableGCs = gcService.listAllAvailableGC(gcFinderPage);
 				
-				if (parameters.containsKey("skill")) {
-
-					String skill = parameters.get("skill")[0];
-					availableGCsSkill = gcService.listAllGCWithSkill(availableGCs, skill);
+				if (parameters.containsKey(Utils.SKILLS_PROPERTY)) {
+					String[] skills = parameters.get(Utils.SKILLS_PROPERTY);
+					availableGCsSkill = gcService.listAllGCWithSkill(availableGCs, skills);
 				}
 			}
 		}

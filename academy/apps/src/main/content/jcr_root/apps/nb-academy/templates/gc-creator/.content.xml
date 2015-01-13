@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:description="Use this template to create a GC Creator tool"
+    jcr:primaryType="cq:Template"
+    jcr:title="Gateway Consultant Creator Template"
+    allowedPaths="[/etc/netbuilder(/.*)?]"
+    ranking="{Long}100">
+    <jcr:content
+        cq:designPath="/etc/designs/nb-academy"
+        jcr:primaryType="cq:PageContent"
+        sling:resourceType="nb-academy/components/pages/gc-creator-page"/>
+</jcr:root>
